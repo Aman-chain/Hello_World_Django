@@ -9,9 +9,9 @@ pipeline {
         slackSend(message: 'test', baseUrl: 'https://hooks.slack.com/services/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', botUser: true)
       }
     }
-    stage('sonarqube') {
+    stage('Sonarqube') {
         environment {
-            scannerHome = tool 'sonarqube'
+            scannerHome = tool 'sonar-scanner'
         }    
 	steps {
              withSonarQubeEnv('sonarserver') {
