@@ -23,7 +23,7 @@ pipeline {
 	agent any
         environment {
             registry = "aman432/docker-test"
-            registryCredential = "docker-hub"
+            registryCredential = "dockerhub"
         }
        steps {
 	 git 'https://github.com/Aman-chain/Hello_World_Django.git'
@@ -39,7 +39,7 @@ pipeline {
     stage('Deploy Image') {
       steps{
         script {
-          docker.withRegistry( '', registryCredential = "docker-hub" ) {
+          docker.withRegistry( '', registryCredential = "dockerhub" ) {
           sh "docker login -u aman432 -p aman@1234"
             dockerImage.push()
 	  }
