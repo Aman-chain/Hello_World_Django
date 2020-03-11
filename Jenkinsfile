@@ -9,13 +9,13 @@ pipeline {
         slackSend(message: 'test', baseUrl: 'https://hooks.slack.com/services/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', botUser: true)
       }
     }
-    stage('Sonarqube') {
+    stage('sonarqube') {
         environment {
             scannerHome = tool 'sonarqube'
         }    
 	steps {
              withSonarQubeEnv('sonarserver') {
-                 sh "${scannerHome}var/bin/sonarqube"
+                 sh "${scannerHome}/bin/sonarqube"
              }        
        }
     }	  
