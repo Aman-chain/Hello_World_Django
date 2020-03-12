@@ -1,4 +1,3 @@
-
 pipeline {
   agent any
   options {
@@ -27,7 +26,7 @@ pipeline {
             registryCredential = "dockerhub"
         }
        steps {
-	 git 'https://github.com/Aman-chain/Hello_World_Django.git'
+	 git 'https://github.com/Ankitkrsingh0999/Hello_World_Django.git'
        }
     }	    
     stage('Build Image') {
@@ -46,11 +45,11 @@ pipeline {
         script {
 	  docker.withRegistry('http://930942422495.dkr.ecr.us-east-1.amazonaws.com','ecr:us-east-1:demo-ecr-credentials' )
 	  {
-              sh 'docker push 930942422495.dkr.ecr.us-east-1.amazonaws.com/docker-test'
+	      sh 'docker tag aman432/docker-test:latest 930942422495.dkr.ecr.us-east-1.amazonaws.com/demo1'
+              sh 'docker push 930942422495.dkr.ecr.us-east-1.amazonaws.com/demo1'
 	  }
 	}
       }
     }
   }
 }
-	
