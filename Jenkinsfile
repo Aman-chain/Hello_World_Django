@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Sonarqube') {
         environment {
-            scannerHome = tool 'sonarqube'
+            scannerHome = tool 'sonarserver'
         }    
 	steps {
              withSonarQubeEnv('sonarserver') {
@@ -26,7 +26,7 @@ pipeline {
             registryCredential = "dockerhub"
         }
        steps {
-	 git 'https://github.com/Aman-chain/Hello_World_Django.git'
+	 git 'https://github.com/Ankitkrsingh0999/Hello_World_Django.git'
        }
     }	    
     stage('Build Image') {
@@ -40,7 +40,7 @@ pipeline {
       steps{
         script {
           docker.withRegistry( '', registryCredential = "dockerhub" ) {
-          sh "docker login -u aman432 -p aman@1234"
+          sh "docker login -u  -p  "
             dockerImage.push()
 	  }
 	}
@@ -48,5 +48,5 @@ pipeline {
     }
   }
 }
-}
+
 
