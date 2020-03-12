@@ -22,17 +22,17 @@ pipeline {
     stage('DockerHub') {
 	agent any
         environment {
-            registry = "aman432/docker-test"
+            registry = "ankit0999/docker-test"
             registryCredential = "dockerhub"
         }
        steps {
-	 git 'https://github.com/Aman-chain/Hello_World_Django.git'
+	 git 'https://github.com/Ankitkrsingh0999/Hello_World_Django.git'
        }
     }	    
     stage('Build Image') {
       steps{
         script {
-          dockerImage = docker.build("aman432/docker-test")
+          dockerImage = docker.build("ankit0999/docker-test")
         }
       }
     }
@@ -40,7 +40,7 @@ pipeline {
       steps{
         script {
           docker.withRegistry( '', registryCredential = "dockerhub" ) {
-          sh "docker login -u aman432 -p aman@1234"
+          sh "docker login -u  -p  "
             dockerImage.push()
 	  }
 	}
@@ -48,3 +48,4 @@ pipeline {
     }
   }
 }
+
