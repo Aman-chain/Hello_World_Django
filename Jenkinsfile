@@ -26,7 +26,7 @@ pipeline {
             registryCredential = "dockerhub"
         }
        steps {
-	 git 'https://github.com/Ankitkrsingh0999/Hello_World_Django.git'
+	 git 'https://github.com/Aman-chain/Hello_World_Django.git'
        }
     }	    
     stage('Build Image') {
