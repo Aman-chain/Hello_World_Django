@@ -46,7 +46,7 @@ pipeline {
         script {
 	  docker.withRegistry('http://930942422495.dkr.ecr.us-east-1.amazonaws.com','ecr:us-east-1:demo-ecr-credentials' )
 	  {
-              sh 'docker push 930942422495.dkr.ecr.us-east-1.amazonaws.com/deckor-test'
+              sh 'docker push 930942422495.dkr.ecr.us-east-1.amazonaws.com/docker-test'
 	  }
 	}
       }
