@@ -36,14 +36,14 @@ pipeline {
         }
       }
     }
-    environment 
-    {
+  environment 
+  {
         VERSION = 'latest'
         PROJECT = 'docker-test'
         IMAGE = 'docker-test:latest'
         ECRURL = 'http://930942422495.dkr.ecr.us-east-1.amazonaws.com'
         ECRCRED = 'ecr:us-east-1:demo-ecr-credentials'
-    }
+  }
   stages
   {
       stage('Build preparations')
