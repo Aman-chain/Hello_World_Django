@@ -46,6 +46,10 @@ pipeline {
 	}
       }
     }
+    stage 'Docker push'
+    docker.withRegistry('https://930942422495.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:demo-ecr-credentials') {
+      docker.image('demo').push('latest')
+  }
   }
 }
 
